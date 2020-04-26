@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 
 @interface ViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *tfPaginaAcessada;
-@property (weak, nonatomic) IBOutlet UIWebView *wvPaginaWeb;
+@property (weak, nonatomic) IBOutlet UIView *viewPaginaWeb;
+@property (weak, nonatomic) IBOutlet WKWebView *wvPaginaWeb;
 @property (weak, nonatomic) IBOutlet UITextView *tvLinkDaTransmissao;
+
+@property (weak, nonatomic) NSString *caminhoDosDados;
 
 @end
 
