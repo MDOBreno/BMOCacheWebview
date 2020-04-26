@@ -10,6 +10,9 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *tfPaginaAcessada;
+@property (weak, nonatomic) IBOutlet UIWebView *wvPaginaWeb;
+@property (weak, nonatomic) IBOutlet UITextView *tvLinkDaTransmissao;
 
 @end
 
