@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[ViewController webView:decidePolicyForNavigationAction:decisionHandler:]:ViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[NSString stringWithFormat:[[navigationAction.request URL] absoluteString]]">
+            </PersistentString>
+            <PersistentString
+               value = "decisionHandler">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ViewController webView:decidePolicyForNavigationResponse:decisionHandler:]:ViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[response statusCode]">
+            </PersistentString>
+            <PersistentString
+               value = "[NSString stringWithFormat:[[response URL] absoluteString]]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ViewController btPegaCache:]:ViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "__30-[ViewController btPegaCache:]_block_invoke:ViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "cookie.commentURL">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

@@ -55,6 +55,86 @@
     [self.viewPaginaWeb addSubview:_wvPaginaWeb];
 }
 
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+    NSLog(@"request: %@", navigationAction.request);
+    BOOL *permite = NO;
+
+    // check whether this request should be stopped - if this is redirect_uri (like user is already authorized)
+    if (permite) {
+        self.wvPaginaWeb.navigationDelegate = nil;
+
+        // do what is needed to send authorization data back
+        //self.completionBlock(...);
+
+        // close current view controller
+        //[self dismissViewControllerAnimated:YES completion:nil];
+
+        // stop executing current request
+        decisionHandler(WKNavigationActionPolicyCancel);
+
+    } else {
+        // otherwise allow current request
+        decisionHandler(WKNavigationActionPolicyAllow);
+    }
+}
+
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
+    NSHTTPURLResponse *response = (NSHTTPURLResponse *)navigationResponse.response;
+
+    // filter the responses, in order to verify only the response from specific domain
+    if ([[NSString stringWithFormat:[[response URL] absoluteString]] containsString:@"m3u8"]) {
+
+        NSInteger statusCode = [response statusCode];
+
+        // check what is the status code
+        if (statusCode == 200 ||
+            statusCode == 301 ||
+            statusCode == 302) {
+
+            // allow response as everything is ok
+            decisionHandler(WKNavigationResponsePolicyAllow);
+
+        } else {
+            // handle the error (e.g. any of 4xx or any others)
+
+            self.wvPaginaWeb.navigationDelegate = nil;
+
+            // send needed info back
+            //self.completionBlock(...);
+
+            // close current view controller
+            //[self dismissViewControllerAnimated:YES completion:nil];
+
+            // stop current response
+            decisionHandler(WKNavigationResponsePolicyCancel);
+        }
+
+    } else {
+        // current response is not from our domain, so allow it
+        decisionHandler(WKNavigationResponsePolicyAllow);
+    }
+}
+
+- (IBAction)btPegaCache:(id)sender {
+    WKWebsiteDataStore *dataStore = _wvPaginaWeb.configuration.websiteDataStore;
+    [dataStore.httpCookieStore getAllCookies:^(NSArray* cookies) {
+        NSHTTPCookie *cookie;
+        for(cookie in cookies){
+            NSLog(@"cookie: %@", cookie);
+        }
+    }];
+}
+
+
+
+
+
+
+
+
+
+
+
 /*- (void) cacheFile {
     //Create the file/directory pointer for the storage of the cache.
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
@@ -74,12 +154,9 @@
     //Run the load web view function.
     [self loadWebView];
 }
-
-
 - (void) loadWebView {
     //Load up the web view from the cache.
     [_wvPaginaWeb loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:self.caminhoDosDados]]];
 }*/
-
 
 @end

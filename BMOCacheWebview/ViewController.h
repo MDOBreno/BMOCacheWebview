@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet WKWebView *wvPaginaWeb;
 @property (weak, nonatomic) IBOutlet UITextView *tvLinkDaTransmissao;
 
+- (IBAction)btPegaCache:(id)sender;
+
 @property (weak, nonatomic) NSString *caminhoDosDados;
 
 @end

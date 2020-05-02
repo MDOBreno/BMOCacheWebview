@@ -1,0 +1,12 @@
+                        GET /hls/s:209.126.108.100:81/disneyxd_d094700e_f684eb17b7f8b907ab136a41e7a4c7472f815b32/playlist.m3u8 HTTP/1.1
+https://edge-aws.aovivo.club/hls/s:209.126.108.100:81/disneyxd_d094700e_f684eb17b7f8b907ab136a41e7a4c7472f815b32/playlist.m3u8
+
+                       https://edge-aws.aovivo.club/hls/s:209.126.108.                100:81/disneyxd_d094700e_f684eb17b7f8b907ab136a41e7a4c7472f815b32/playlist.m3u8
+|initVideoJsContribHlsJsPlayer|edge|aws|aovivo|club|      209|    108|abrEwmaFastLive|100|81|disneyxd_d094700e_f684eb17b7f8b907ab136a41e7a4c7472f815b32|playlist|m3u8
+
+https://stackoverflow.com/questions/6575214/caching-a-uiwebview
+https://stackoverflow.com/questions/36597224/how-to-get-server-response-code-for-each-request-in-webview
+https://nshipster.com/wkwebview/
+https://www.manongdao.com/q-1166450/2.html
+https://www.google.com/search?q=Swift+ObjC+Catch+m3u8+URL+WebView&client=safari&rls=en&ei=mf6tXpbJBK665OUPibGByAs&start=10&sa=N&ved=2ahUKEwjW-eyQp5bpAhUuHbkGHYlYALkQ8tMDegQICxAy&biw=1215&bih=746
+
